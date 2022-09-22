@@ -1,0 +1,5 @@
+NOTES
+=====
+	- turned off peculiar velocities if Vel_comp != {1, 2, 3}
+	- omega_lambda is set as 1 - omega_matter
+	- added -fcommon to makefile flags to compile with newer gcc
