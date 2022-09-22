@@ -186,12 +186,14 @@ int main(int argc, char * argv[]) {
 	    if(i==0 && j==0 && p==0) {
 	      dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p]=0.;
 	    }else {
-	      kk=global_dk*sqrt(indi*indi+indj*indj+p*p);	
+	      kk=global_dk*sqrt(indi*indi+indj*indj+p*p);
+	      // LC if Vel_comp anything other than 1, 2 or 3 then no
+	      // peculiar velocities
 	      if(global_vi==1) {
 		dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p]=(global_dk*indi)*(global_dk*indi)/(kk*kk)*dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p];
 	      }else if(global_vi==2) {
 		dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p]=(global_dk*indj)*(global_dk*indj)/(kk*kk)*dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p];
-	      }else {
+	      }else if (global_vi==3) {
 		dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p]=(global_dk*p)*(global_dk*p)/(kk*kk)*dvdk[i*global_N_smooth*(global_N_smooth/2+1)+j*(global_N_smooth/2+1)+p];
 	      }
 	    }
