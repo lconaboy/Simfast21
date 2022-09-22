@@ -48,6 +48,7 @@ double global_hubble;
 double global_omega_m;   
 double global_omega_b;   
 double global_lambda;
+double global_lambda_; // LC
 double global_rho_m;
 double global_rho_b;
 

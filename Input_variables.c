@@ -61,7 +61,12 @@ void get_Simfast21_params(char *basedir){
       else if(strcmp(first,"camb_file")==0)strcpy(global_camb_file,third);
       else if(strcmp(first,"omega_matter")==0)global_omega_m=atof(third);
       else if(strcmp(first,"omega_baryon")==0)global_omega_b=atof(third);
-      else if(strcmp(first,"omega_lambda")==0)global_lambda=atof(third);
+      else if(strcmp(first,"omega_lambda")==0) {
+	global_lambda_ = atof(third);
+	// LC assume flat cosmology
+	global_lambda = 1.0 - global_omega_m;
+	printf("Ignoring input omega_lambda %ld, assuming flat cosmology omega_lambda = %ld\n", global_lambda_, global_lambda);
+      }
       else if(strcmp(first,"hubble")==0)global_hubble=atof(third);
       else if(strcmp(first,"spectral_index")==0)global_n_index=atof(third);
       else if(strcmp(first,"sigma8")==0)global_sig8_new=atof(third);    
