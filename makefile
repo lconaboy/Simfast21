@@ -1,6 +1,6 @@
 #compiler
 #cc = /usr/local/bin/gcc-8
-cc = gcc
+cc = /opt/homebrew/bin/gcc
 
 #complilation flags
 
@@ -17,7 +17,7 @@ gsl = -lgsl -lgslcblas -lm
 deb = -g
 
 #flags = -std=c99 -Wall -O3 -march=native $(fftwd) $(fftwf) $(omp) $(gsl) -lm
-flags = -std=c99 -Wall -O3 $(omp) $(fftwd) $(fftwf) $(gsl) -I .
+flags = -std=c99 -Wall -O3 -fcommon $(omp) $(fftwd) $(fftwf) $(gsl) -I . -I/opt/homebrew/include -L/opt/homebrew/lib
 
 auxo = auxiliary.o Input_variables.o 
 auxh = auxiliary.h Input_variables.h 
